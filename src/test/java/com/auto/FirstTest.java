@@ -32,7 +32,7 @@ public class FirstTest {
 
     @AfterMethod
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -63,7 +63,7 @@ public class FirstTest {
         if (logOutButton.isDisplayed()){
             System.out.println("true");
         } else {
-            System.out.println("false");;
+            System.out.println("false");
         }
     }
 
