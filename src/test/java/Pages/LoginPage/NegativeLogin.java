@@ -1,8 +1,6 @@
 package Pages.LoginPage;
 
 import Tests.BasicTests;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
