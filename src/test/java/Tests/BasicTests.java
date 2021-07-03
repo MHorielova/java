@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -20,6 +21,15 @@ public class BasicTests {
         return loginButton;
     }
 
+    public WebElement getError1() {
+        WebElement error1 = driver.findElement(By.xpath("//h3[@data-test = 'error']"));
+        return error1;
+    }
+    public WebElement getErrorButton() {
+        WebElement errorButton = driver.findElement(By.xpath("//button[@class = 'error-button']"));
+        return  errorButton;
+    }
+
     @BeforeMethod
     public void setUp() {
         StringJoiner pathToChromeDriver = new StringJoiner(separator);
@@ -33,6 +43,13 @@ public class BasicTests {
     @AfterMethod
     public void tearDown() {
         driver.quit();
+    }
+
+    public void logInCredentials(){
+        String username = getFirstValue("login_credentials");
+        String password = getFirstValue("login_password");
+        driver.findElement(By.id("user-name")).sendKeys(username);
+        driver.findElement(By.name("password")).sendKeys(password);
     }
 
     public String getFirstValue(String className) {

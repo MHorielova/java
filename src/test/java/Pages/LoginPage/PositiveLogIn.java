@@ -10,12 +10,9 @@ public class PositiveLogIn extends BasicTests {
     @Test
     public void positiveTest() {
         super.getLoginButton();
-        String username = getFirstValue("login_credentials");
-        String password = getFirstValue("login_password");
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
+        super.logInCredentials();
         super.getLoginButton().click();
-        isUserLoggedInCheck();
+        super.isUserLoggedInCheck();
     }
 
 }
