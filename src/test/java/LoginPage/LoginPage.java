@@ -1,4 +1,4 @@
-package Tests;
+package LoginPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 
 import static java.io.File.separator;
 
-public class BasicTests {
+public class LoginPage {
 
     public WebDriver driver;
 
@@ -47,24 +47,15 @@ public class BasicTests {
     public void logInCredentials(){
         String username = getFirstValue("login_credentials");
         String password = getFirstValue("login_password");
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
+        WebElement userNameField = driver.findElement(By.id("user-name"));
+        WebElement passwordField = driver.findElement(By.name("password"));
+        userNameField.sendKeys(username);
+        passwordField.sendKeys(password);
     }
 
     public String getFirstValue(String className) {
         String values = driver.findElement(By.className(className)).getText();
         return values.split("\n")[1];
-    }
-
-    public void isUserLoggedInCheck() {
-        WebElement burgerMenuButton = driver.findElement(By.id("react-burger-menu-btn"));
-        burgerMenuButton.click();
-        WebElement logOutButton = driver.findElement(By.id("logout_sidebar_link"));
-        if (logOutButton.isDisplayed()){
-            System.out.println("true");
-        } else {
-            System.out.println("false");
-        }
     }
 }
 
