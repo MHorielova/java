@@ -57,5 +57,13 @@ public class LoginPage {
         String values = driver.findElement(By.className(className)).getText();
         return values.split("\n")[1];
     }
+
+    public void isUserLoggedInCheck() {
+        if(driver.getCurrentUrl().contains("inventory")){
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+    }
 }
 
