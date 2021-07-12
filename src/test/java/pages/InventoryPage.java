@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 public class InventoryPage {
 
-    private final WebDriver driver;
+    private WebDriver driver;
 
     public InventoryPage(WebDriver driver) {
-        this.driver = driver;
+       this.driver = driver;
     }
 
     public void isUserLoggedInCheck() {
