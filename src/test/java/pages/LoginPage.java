@@ -11,7 +11,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.loginButton = driver.findElement(By.xpath("//div[@class = 'login-box']//input[@data-test = 'login-button']"));
+        this.loginButton = driver.findElement(By.xpath("//input[@data-test = 'login-button']"));
     }
 
     public WebElement getError() {

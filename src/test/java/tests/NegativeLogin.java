@@ -8,10 +8,9 @@ import org.testng.asserts.SoftAssert;
 
 public class NegativeLogin extends TestConfig {
 
-    LoginPage loginPage = new LoginPage(driver);
-
     @Test
     private void negativeTest() {
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginButton.click();
         loginPage.getError();
         SoftAssert softAssert = new SoftAssert();

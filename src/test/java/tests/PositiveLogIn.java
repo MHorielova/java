@@ -8,11 +8,10 @@ import pages.LoginPage;
 
 public class PositiveLogIn extends TestConfig {
 
-    LoginPage loginPage = new LoginPage(driver);
-    InventoryPage inventoryPage = new InventoryPage(driver);
-
     @Test
     private void positiveTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        InventoryPage inventoryPage = new InventoryPage(driver);
         loginPage.logInCredentials();
         loginPage.loginButton.click();
         inventoryPage.isUserLoggedInCheck();
