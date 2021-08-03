@@ -1,35 +1,48 @@
 package pages;
 
-import org.openqa.selenium.By;
+import helpers.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+public class LoginPage  extends BasePage {
 
-    private WebDriver driver;
+    @FindBy(xpath = "//input[@data-test = 'login-button']")
     public WebElement loginButton;
+    @FindBy(id = "user-name")
+    private WebElement usernameField;
+    @FindBy(name = "password")
+    private WebElement passwordField;
+    @FindBy(xpath = "//h3[@data-test = 'error']")
+    private WebElement error;
+    @FindBy(xpath = "//button[@class = 'error-button']")
+    private WebElement errorButton;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.loginButton = driver.findElement(By.xpath("//input[@data-test = 'login-button']"));
+        super(driver);
     }
 
     public WebElement getError() {
-        return this.driver.findElement(By.xpath("//h3[@data-test = 'error']"));
+        return error;
     }
     public WebElement getErrorButton() {
-        return this.driver.findElement(By.xpath("//button[@class = 'error-button']"));
+        return errorButton;
     }
 
-    public void logInCredentials() {
+    public void logIn(String username, String password) {
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        loginButton.click();
+    }
+
+    public void logInByStandardUser(){
         String username = getFirstValue("login_credentials");
         String password = getFirstValue("login_password");
-        driver.findElement(By.id("user-name")).sendKeys(username);;
-        driver.findElement(By.name("password")).sendKeys(password);;
+        logIn(username, password);
     }
 
     public String getFirstValue(String className) {
-        String values = driver.findElement(By.className(className)).getText();
+        String values = byClassName(className).getText();
         return values.split("\n")[1];
     }
 }

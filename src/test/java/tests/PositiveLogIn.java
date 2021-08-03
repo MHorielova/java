@@ -1,19 +1,21 @@
 package tests;
 
+import helpers.PageWithBurgerMenu;
 import helpers.TestConfig;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
 
-
 public class PositiveLogIn extends TestConfig {
+
+    private final LoginPage loginPage = new LoginPage(driver);//экземплар клаас или инстанс
+    private final InventoryPage inventoryPage = new InventoryPage(driver);
+    private final PageWithBurgerMenu burgerMenu = new PageWithBurgerMenu(driver);
 
     @Test
     private void positiveTest() {
-        LoginPage loginPage = new LoginPage(driver);
-        InventoryPage inventoryPage = new InventoryPage(driver);
-        loginPage.logInCredentials();
-        loginPage.loginButton.click();
+        loginPage.logInByStandardUser();
         inventoryPage.isUserLoggedInCheck();
+        burgerMenu.logOut();
     }
 }
