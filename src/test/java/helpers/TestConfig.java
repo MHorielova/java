@@ -14,9 +14,9 @@ public class TestConfig {
         StringJoiner pathToChromeDriver = new StringJoiner(separator);
         String path = pathToChromeDriver.add("src").add("test").add("resources").add("chromedriver").toString();
         System.setProperty("webdriver.chrome.driver", path);
-        this.driver = new ChromeDriver();
-        this.driver.get("https://www.saucedemo.com/");
-        this.driver.manage().window().maximize();
+        driver = new ChromeDriver();
+        driver.get("https://www.saucedemo.com/");
+        driver.manage().window().maximize();
     }
 
     @AfterMethod
