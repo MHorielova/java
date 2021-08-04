@@ -13,7 +13,7 @@ public class PositiveLogIn extends TestConfig {
     private final PageWithBurgerMenu burgerMenu = new PageWithBurgerMenu(driver);
 
     @Test
-    private void positiveTest() {
+    public void positiveTest() {
         loginPage.logInByStandardUser();
         inventoryPage.isUserLoggedInCheck();
         burgerMenu.logOut();

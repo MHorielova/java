@@ -14,7 +14,7 @@ public class NegativeLogin extends TestConfig {
     private final PageWithBurgerMenu burgerMenu = new PageWithBurgerMenu(driver);
 
     @Test
-    private void negativeTest() {
+    public void negativeTest() {
         loginPage.loginButton.click();
         loginPage.getError().isDisplayed();
         SoftAssert softAssert = new SoftAssert();

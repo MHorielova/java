@@ -29,7 +29,7 @@ public class LoginPage  extends BasePage {
         return errorButton;
     }
 
-    public void logIn(String username, String password) {
+    private void logIn(String username, String password) {
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
         loginButton.click();
@@ -41,7 +41,7 @@ public class LoginPage  extends BasePage {
         logIn(username, password);
     }
 
-    public String getFirstValue(String className) {
+    private String getFirstValue(String className) {
         String values = byClassName(className).getText();
         return values.split("\n")[1];
     }
