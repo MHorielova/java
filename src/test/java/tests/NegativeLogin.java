@@ -21,8 +21,6 @@ public class NegativeLogin extends TestConfig {
         softAssert.assertEquals(loginPage.getError().getText(), "Epic sadface: Username is required", "Wrong error message");
         loginPage.getErrorButton().isDisplayed();
         loginPage.logInByStandardUser();
-        //Assert.assertTrue(driver.getCurrentUrl().contains("inventory"), "User not log in");
-        //softAssert.assertAll();
         inventoryPage.isUserLoggedInCheck();
         burgerMenu.logOut();
     }
