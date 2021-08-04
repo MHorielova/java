@@ -8,13 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageWithBurgerMenu extends BasePage{
 
-    public PageWithBurgerMenu(WebDriver driver) {
-        super(driver);
-    }
     @FindBy(id = "react-burger-menu-btn")
     public WebElement burgerMenu;
     @FindBy(id = "logout_sidebar_link")
     public WebElement logOut;
+
+    public PageWithBurgerMenu(WebDriver driver) {
+        super(driver);
+    }
 
     public void logOut(){
         burgerMenu.click();
