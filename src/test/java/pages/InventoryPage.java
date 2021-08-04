@@ -1,20 +1,19 @@
 package pages;
 
+import helpers.PageWithBurgerMenu;
 import org.openqa.selenium.WebDriver;
 
-public class InventoryPage {
-
-    private WebDriver driver;
+public class InventoryPage  extends PageWithBurgerMenu {
 
     public InventoryPage(WebDriver driver) {
-       this.driver = driver;
+       super(driver);
     }
 
     public void isUserLoggedInCheck() {
-        if (driver.getCurrentUrl().contains("inventory")) {
-            System.out.println("true");
+        if (getCurrentUrl().contains("inventory")) {
+            System.out.println("true - user IS logged in");
         } else {
-            System.out.println("false");
+            System.out.println("false - user is NOT logged in");
         }
     }
 }

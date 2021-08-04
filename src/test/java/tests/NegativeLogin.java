@@ -1,27 +1,27 @@
 package tests;
 
+import helpers.PageWithBurgerMenu;
 import helpers.TestConfig;
+import pages.InventoryPage;
 import pages.LoginPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class NegativeLogin extends TestConfig {
 
+    private final LoginPage loginPage = new LoginPage(driver);
+    private final InventoryPage inventoryPage = new InventoryPage(driver);
+    private final PageWithBurgerMenu burgerMenu = new PageWithBurgerMenu(driver);
+
     @Test
-    private void negativeTest() {
-        LoginPage loginPage = new LoginPage(driver);
+    public void negativeTest() {
         loginPage.loginButton.click();
-        loginPage.getError();
+        loginPage.getError().isDisplayed();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(loginPage.getError().getText(), "Epic sadface: Username is required", "Wrong error message");
-        loginPage.getErrorButton();
         loginPage.getErrorButton().isDisplayed();
-        loginPage.getError().isDisplayed();
-
-        loginPage.logInCredentials();
-        loginPage.loginButton.click();
-        Assert.assertTrue(driver.getCurrentUrl().contains("inventory"), "User not log in");
-        softAssert.assertAll();
+        loginPage.logInByStandardUser();
+        inventoryPage.isUserLoggedInCheck();
+        burgerMenu.logOut();
     }
 }
