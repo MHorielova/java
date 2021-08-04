@@ -8,7 +8,8 @@ import pages.LoginPage;
 
 public class PositiveLogIn extends TestConfig {
 
-    private final LoginPage loginPage = new LoginPage(driver);//экземплар клаас или инстанс
+    // экземплар клаас или инстанс
+    private final LoginPage loginPage = new LoginPage(driver);
     private final InventoryPage inventoryPage = new InventoryPage(driver);
     private final PageWithBurgerMenu burgerMenu = new PageWithBurgerMenu(driver);
 
