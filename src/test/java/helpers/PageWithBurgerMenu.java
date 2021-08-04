@@ -19,7 +19,6 @@ public class PageWithBurgerMenu extends BasePage{
 
     public void logOut(){
         burgerMenu.click();
-        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); 2nd variant of timeout
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(logOut));
         logOut.click();
     }
